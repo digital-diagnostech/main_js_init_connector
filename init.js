@@ -9,15 +9,12 @@ function get_files_for_chat_and_include() {
             // console.log(`Ошибка ${xhr.status}: ${xhr.statusText}`);
         } else {
             let script = document.createElement('script');
-            let scriptTwo = document.createElement('script');
 
             let addScripts = new Promise(function (resolve, reject) {
-                script.src = '/webform/js/main.js';
-                scriptTwo.src = '/webform/js/widgetForm.min.js';
+                script.src = '/webform/js/widgetForm.min.js';
                 document.getElementsByTagName('head')[0].appendChild(script);
-                document.getElementsByTagName('head')[0].appendChild(scriptTwo);
 
-                scriptTwo.onload = function () {
+                script.onload = function () {
                     resolve({status: 200});
                 }
             });
